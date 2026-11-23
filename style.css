@@ -1,0 +1,197 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f3f5f9;
+  color: #172033;
+}
+
+.topbar {
+  background: #101d35;
+  color: white;
+  padding: 22px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.topbar h1 {
+  font-size: 23px;
+  margin-bottom: 6px;
+}
+
+.topbar p {
+  color: #aab7cc;
+  font-size: 13px;
+}
+
+.status {
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.online {
+  background: #d8f8e7;
+  color: #087443;
+}
+
+.offline {
+  background: #ffe1e1;
+  color: #a52222;
+}
+
+.container {
+  width: min(1200px, 92%);
+  margin: 28px auto;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.card,
+.panel {
+  background: white;
+  border: 1px solid #e5e9f0;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.card span {
+  color: #6b778c;
+  font-size: 13px;
+}
+
+.card strong {
+  display: block;
+  font-size: 30px;
+  margin-top: 12px;
+}
+
+.panel {
+  margin-bottom: 20px;
+}
+
+.panel h2 {
+  font-size: 18px;
+  margin-bottom: 18px;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+button {
+  border: 0;
+  border-radius: 8px;
+  padding: 11px 16px;
+  background: #2459d3;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button.secondary {
+  background: #e8edf5;
+  color: #26344d;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+video {
+  display: block;
+  width: 100%;
+  max-height: 520px;
+  background: #111827;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+input {
+  display: block;
+  width: 100%;
+  margin: 9px 0 12px;
+  padding: 12px;
+  border: 1px solid #d8deea;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+label {
+  font-size: 13px;
+  color: #59677d;
+}
+
+#cameraMessage,
+#serverMessage {
+  margin-top: 12px;
+  color: #69768b;
+  font-size: 13px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 500px;
+}
+
+th,
+td {
+  padding: 13px;
+  border-bottom: 1px solid #edf0f5;
+  text-align: left;
+  font-size: 13px;
+}
+
+th {
+  color: #68758a;
+  background: #f8f9fc;
+}
+
+@media (max-width: 750px) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 420px) {
+  .stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+  }
+
+  .card {
+    padding: 14px;
+  }
+
+  .card strong {
+    font-size: 24px;
+  }
+
+  .controls {
+    flex-wrap: wrap;
+  }
+}
