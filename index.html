@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Vehicle Tracking</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>AI Vehicle Tracking</h1>
+      <p>Система контроля транспорта</p>
+    </div>
+    <span id="connectionStatus" class="status offline">Сервер не подключён</span>
+  </header>
+
+  <main class="container">
+    <section class="stats">
+      <article class="card">
+        <span>Въезды</span>
+        <strong id="entries">0</strong>
+      </article>
+      <article class="card">
+        <span>Выезды</span>
+        <strong id="exits">0</strong>
+      </article>
+      <article class="card">
+        <span>Завершённые рейсы</span>
+        <strong id="trips">0</strong>
+      </article>
+      <article class="card">
+        <span>Обнаружено машин</span>
+        <strong id="vehicles">0</strong>
+      </article>
+    </section>
+
+    <section class="panel">
+      <h2>Подключение камеры</h2>
+      <div class="controls">
+        <button id="startCamera">Включить камеру</button>
+        <button id="stopCamera" class="secondary" disabled>Остановить</button>
+      </div>
+      <video id="camera" autoplay playsinline muted></video>
+      <canvas id="frameCanvas" hidden></canvas>
+      <p id="cameraMessage">Камера пока не запущена.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Подключение AI-сервера</h2>
+      <label for="serverUrl">Адрес WebSocket-сервера</label>
+      <input
+        id="serverUrl"
+        type="url"
+        value="ws://localhost:8000/ws/video"
+        placeholder="wss://ваш-сервер/ws/video"
+      >
+      <button id="connectServer">Подключить сервер</button>
+      <p id="serverMessage">Ожидание подключения.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Последние события</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Время</th>
+              <th>Событие</th>
+              <th>Госномер</th>
+              <th>Направление</th>
+            </tr>
+          </thead>
+          <tbody id="eventList">
+            <tr>
+              <td colspan="4">Событий пока нет.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
